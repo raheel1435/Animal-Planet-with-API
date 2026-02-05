@@ -3,25 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO META TAGS -->
     <meta name="description" content="Animal Planet - Explore the world of animals and wildlife with us.">
     <meta name="keywords" content="zoo, animal home, animal planet, wildlife, animals">
     <meta name="author" content="Raheel Shan">
+    <!-- GOOGLE FONTS PRECONNECT: Optimizes font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- GOOGLE FONTS: Freckle Face for headings, Quicksand for body text -->
     <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Animal Planet</title>
 </head>
 
 <body>
+    <!-- HEADER SECTION: Contains logo and main navigation -->
     <header class="main">
         <div class="navbar">
+             <!-- BRANDING / LOGO -->
             <div class="icon">
                 <h1 class="logo">Animal Planet</h1>
             </div>
+            <!-- NAVIGATION MENU: Links to main sections -->
             <nav class="menu">
                 <ul>
-                    <li><a href="#" class="active">home</a></li>
+                    <li><a href="index.html" class="active">home</a></li>
                     <li><a href="#">Gallery</a></li>
                     <li><a href="#">Category</a></li>
                 </ul>
@@ -29,16 +35,22 @@
         </div>
     </header>
 
+     <!-- MAIN CONTENT: Split into search and image columns -->
     <main>
     <div class="main-content">
+         <!-- SEARCH COLUMN: Allows users to filter animals -->
         <div class="search-column">
             <div class="search">
+                 <!-- LABEL: Important for accessibility and screen readers -->
                 <label for="search-input">Search Animal</label>
+                <!-- TEXT INPUT: User types search query -->
                 <input id="search-input" type="text" placeholder="search here...">
-                <button type="button" class="btn">Search</button>
+                <!-- BUTTON: Triggers search logic in script.js -->
+                <button type="button" class="btn" id="searchBtn">Search</button>
             </div>
         </div>
-
+        
+        <!-- IMAGE COLUMN: Gallery grid populated dynamically via JS -->
         <div class="image-column">
             <div class="image-grid" id="animal-gallery">
                  <!-- Images will be injected here via API -->
@@ -47,13 +59,18 @@
     </div>
     </main>
 
-    <!--Modal-->
-    <div id="myModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <!-- MODAL DIALOG: Displays detailed info when an image is clicked -->
+    <div id="myModal" class="modal" role="dialog" aria-modal="true">
         <div class="modal-content">
+            <!-- CLOSE BUTTON: Accessible with aria-label -->
             <button class="close" aria-label="close dialog" type="button">&times;</button>
+
+            <!-- IMAGE CONTAINER: Shows large version of clicked image -->
             <div class="modal-image-container">
                 <img id="modalImage" src="" alt="">
             </div>
+
+            <!-- ANIMAL DETAILS: Populated dynamically via JS -->
             <div id="modalDetails">
                 <p><strong>Name:</strong> <span id="modalName"></span></p>
                 <p><strong>Type:</strong> <span id="modalType"></span></p>
@@ -74,5 +91,6 @@
         </p>
     </footer>
 
+    <!-- MAIN JAVASCRIPT: Handles dynamic gallery, search, and modal -->
     <script type="module" src="script.js"></script>
 </body>
