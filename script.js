@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==== FETCH ANIMALS FROM API ====
     async function fetchAnimals() {
         try {
-            const res = await fetch("http://localhost:3000/api/images"); // Replace with your API endpoint
+            const res = await fetch("http://localhost:3000/api/images"); 
             if (!res.ok) throw new Error('Failed to fetch animals'); // Handle network errors
             const data = await res.json(); // Convert response to JSON
             return data; // Return the array of animals
