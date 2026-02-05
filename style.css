@@ -1,0 +1,280 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Quicksand', sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Header Styles */
+header.main {
+    width: 100%;
+    padding: 20px;
+    background: rgba(199, 241, 199, 0.667);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    color: #3a3a;
+    font-size: 50px;
+    font-family: 'Freckle Face', cursive;
+    margin-right: 20px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+ul li {
+    margin-right: 20px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #3a3a;
+    font-weight: bold;
+    transition: 0.4s ease-in-out;
+}
+
+ul li a:hover {
+    color: rgb(209, 245, 144);
+}
+
+/* Main Content */
+.main-content {
+    display: flex;
+    flex: 1;
+    max-width: 1300px;
+    margin: 20px auto;
+    padding: 0 20px;
+    gap: 20px;
+}
+
+/* Search Column */
+.search-column {
+    width: 250px;
+}
+
+.search {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#search-input {
+    font-family: 'Quicksand', sans-serif;
+    width: 100%;
+    height: 30px;
+    background: transparent;
+    border: 3px solid #3a3a;
+    border-radius: 30px;
+    color: black;
+    font-size: 16px;
+    padding: 0 10px;
+}
+
+.btn {
+    width: 100%;
+    height: 30px;
+    background: rgba(199, 241, 199, 0.667);
+    font-size: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: rgba(159, 221, 159, 0.8);
+}
+
+/* Image Column */
+.image-column {
+    flex: 1;
+}
+
+/* Dynamic Image Grid */
+#animal-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* Individual Image Item */
+.image-item {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+    will-change: transform;
+}
+
+.image-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.image-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.detail-box {
+    padding: 10px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.detail-box p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+}
+
+.modal-image-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.modal-image-container img {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.modal-content .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #3a3a;
+}
+
+.modal-content .close:hover {
+    color: rgb(209, 245, 144);
+}
+
+#modalDetails p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(199, 241, 199, 0.667);
+    margin-top: auto;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+}
+
+footer p {
+    font-size: 16px;
+    color: #3a3a;
+}
+
+footer a {
+    color: #3a3a;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: 0.3s ease-in-out;
+}
+
+footer a:hover {
+    color: rgb(209, 245, 144);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    #animal-gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .search-column {
+        width: 100%;
+    }
+
+    #animal-gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    #animal-gallery {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    footer p {
+        font-size: 14px;
+    }
+
+    footer a {
+        display: inline-block;
+        margin: 0 5px;
+    }
+}
