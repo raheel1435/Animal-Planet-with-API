@@ -108,11 +108,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==== SEARCH FUNCTIONALITY ====
-    searchInput.addEventListener('input', async () => {
-        const query = searchInput.value.toLowerCase(); // Get query and normalize
-        const animals = await fetchAnimals();           // Fetch latest animals
-        const filtered = animals.filter(a => a.name.toLowerCase().includes(query)); // Filter by name
-        renderAnimals(filtered); // Re-render gallery with filtered results
+    searchInput.addEventListener('input', async () => {    // async means: “This function may take time, and I want to wait for something inside it.”
+        const query = searchInput.value.toLowerCase(); // Get query and State extraction/normalize.  "toLowerCase()" To make search Case-insensitive and User-friendly.
+        const animals = await fetchAnimals();           // Fetch latest animals. await means: “Pause THIS function until the promise finishes.” Why inside the event? Because You want the latest data and Server data may change (Optimization later: cache it).
+        const filtered = animals.filter(a => a.name.toLowerCase().includes(query)); // Array filtering/Predicate function. Keeps only animals whose names match the query (Rule: Filter = reduce dataset without mutating original)
+        renderAnimals(filtered); // UI-update/Re-render gallery with filtered results. render means: “Take data and turn it into visible UI”. Rendering logic must exist in ONE place and Search only decides what to show. (Rule: Events decide when Render decides how) 
     });
 
     // ==== INITIALIZE PAGE ====
